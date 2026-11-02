@@ -24,6 +24,9 @@ import br.com.clyvo.vitalia.dto.request.AlertRequest;
 import br.com.clyvo.vitalia.enums.AlertType;
 import br.com.clyvo.vitalia.enums.RiskLevel;
 import br.com.clyvo.vitalia.enums.AlertStatus;
+import br.com.clyvo.vitalia.dto.response.MeasurementDetailResponse;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
 import java.util.Map;
@@ -126,6 +129,29 @@ public class MeasurementService {
         }
 
         return new MeasurementResponse(salva.getId(), salva.getPetId(), statusIa, statusIa != null);
+    }
+
+    public MeasurementDetailResponse buscarUltimaMedicao(Long petId) {
+        MeasurementEntity measurement = measurementRepository
+                .findTopByPetIdOrderByMeasurementDateDesc(petId)
+                .orElseThrow(() ->
+                        new ResponseStatusException(
+                                HttpStatus.NOT_FOUND,
+                                "Nenhuma medição encontrada para o pet."
+                        )
+                );
+
+        return new MeasurementDetailResponse(
+                measurement.getId(),
+                measurement.getPetId(),
+                measurement.getActivityLevel(),
+                measurement.getSleepHours(),
+                measurement.getHeartRate(),
+                measurement.getRespiratoryRate(),
+                measurement.getTemperature(),
+                measurement.getBehaviorScore(),
+                measurement.getMeasurementDate()
+        );
     }
 
     private Map<String, Object> consultarIaDetalhada(Long petId, MeasurementRequest dto) {
