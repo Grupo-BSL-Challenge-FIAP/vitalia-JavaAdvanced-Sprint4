@@ -1,12 +1,15 @@
 package br.com.clyvo.vitalia.controller;
 
 import br.com.clyvo.vitalia.dto.request.MeasurementRequest;
+import br.com.clyvo.vitalia.dto.response.MeasurementDetailResponse;
 import br.com.clyvo.vitalia.dto.response.MeasurementResponse;
 import br.com.clyvo.vitalia.service.MeasurementService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +25,14 @@ public class MeasurementController {
     @PostMapping
     public ResponseEntity<MeasurementResponse> registrarMedicao(@Valid @RequestBody MeasurementRequest request) {
         MeasurementResponse response = measurementService.salvarEProcessarMedicao(request);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @GetMapping("/pet/{petId}/latest")
+    public ResponseEntity<MeasurementDetailResponse> buscarUltimaMedicao(@PathVariable Long petId) {
+        MeasurementDetailResponse response = measurementService.buscarUltimaMedicao(petId);
+
+        return ResponseEntity.ok(response);
     }
 }
