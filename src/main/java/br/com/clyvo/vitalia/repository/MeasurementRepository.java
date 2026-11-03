@@ -4,10 +4,13 @@ import br.com.clyvo.vitalia.entity.MeasurementEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface MeasurementRepository extends JpaRepository<MeasurementEntity, Long> {
 
     Optional<MeasurementEntity> findTopByPetIdOrderByMeasurementDateDesc(Long petId);
+
+    List<MeasurementEntity> findByPetIdOrderByMeasurementDateDesc(Long petId);
 }
