@@ -141,6 +141,8 @@ public class MeasurementService {
     }
 
     public MeasurementDetailResponse buscarUltimaMedicao(Long petId) {
+        validarAcessoPet(petId);
+
         MeasurementEntity measurement = measurementRepository
                 .findTopByPetIdOrderByMeasurementDateDesc(petId)
                 .orElseThrow(() ->
