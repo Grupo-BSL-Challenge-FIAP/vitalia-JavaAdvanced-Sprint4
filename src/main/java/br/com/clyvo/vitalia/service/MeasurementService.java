@@ -4,8 +4,10 @@ import br.com.clyvo.vitalia.dto.request.MeasurementRequest;
 import br.com.clyvo.vitalia.dto.response.MeasurementResponse;
 import br.com.clyvo.vitalia.entity.AiRecommendation;
 import br.com.clyvo.vitalia.entity.MeasurementEntity;
+import br.com.clyvo.vitalia.entity.Pet;
 import br.com.clyvo.vitalia.repository.AiRecommendationRepository;
 import br.com.clyvo.vitalia.repository.MeasurementRepository;
+import br.com.clyvo.vitalia.repository.PetRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +49,12 @@ public class MeasurementService {
 
     @Autowired
     private MeasurementRepository measurementRepository;
+
+    @Autowired
+    private PetRepository petRepository;
+
+    @Autowired
+    private AuthorizationService authorizationService;
 
     @Value("${vitalia.ai.base-url}")
     private String aiBaseUrl;
@@ -155,6 +163,26 @@ public class MeasurementService {
         );
     }
 
+    public List<MeasurementDetailResponse> buscarHistoricoMedicoes(Long petId) {
+        validarAcessoPet(petId);
+
+        return measurementRepository
+                .findByPetIdOrderByMeasurementDateDesc(petId)
+                .stream()
+                .map(measurement -> new MeasurementDetailResponse(
+                        measurement.getId(),
+                        measurement.getPetId(),
+                        measurement.getActivityLevel(),
+                        measurement.getSleepHours(),
+                        measurement.getHeartRate(),
+                        measurement.getRespiratoryRate(),
+                        measurement.getTemperature(),
+                        measurement.getBehaviorScore(),
+                        measurement.getMeasurementDate()
+                ))
+                .toList();
+    }
+
     private Map<String, Object> consultarIaDetalhada(Long petId, MeasurementRequest dto) {
         try {
             HttpHeaders headers = new HttpHeaders();
@@ -177,21 +205,16 @@ public class MeasurementService {
         return Map.of();
     }
 
-    public List<MeasurementDetailResponse> buscarHistoricoMedicoes(Long petId) {
-        return measurementRepository
-                .findByPetIdOrderByMeasurementDateDesc(petId)
-                .stream()
-                .map(measurement -> new MeasurementDetailResponse(
-                        measurement.getId(),
-                        measurement.getPetId(),
-                        measurement.getActivityLevel(),
-                        measurement.getSleepHours(),
-                        measurement.getHeartRate(),
-                        measurement.getRespiratoryRate(),
-                        measurement.getTemperature(),
-                        measurement.getBehaviorScore(),
-                        measurement.getMeasurementDate()
-                ))
-                .toList();
+    private void validarAcessoPet(Long petId) {
+        Pet pet = petRepository.findById(petId)
+                .orElseThrow(() ->
+                        new ResponseStatusException(
+                                HttpStatus.NOT_FOUND,
+                                "Pet não encontrado."
+                        )
+                );
+
+        authorizationService.validatePetOwnership(pet);
     }
+
 }
