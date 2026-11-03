@@ -29,6 +29,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -174,5 +175,23 @@ public class MeasurementService {
             log.warn("API de IA indisponível para o pet {}: {}", petId, e.getMessage());
         }
         return Map.of();
+    }
+
+    public List<MeasurementDetailResponse> buscarHistoricoMedicoes(Long petId) {
+        return measurementRepository
+                .findByPetIdOrderByMeasurementDateDesc(petId)
+                .stream()
+                .map(measurement -> new MeasurementDetailResponse(
+                        measurement.getId(),
+                        measurement.getPetId(),
+                        measurement.getActivityLevel(),
+                        measurement.getSleepHours(),
+                        measurement.getHeartRate(),
+                        measurement.getRespiratoryRate(),
+                        measurement.getTemperature(),
+                        measurement.getBehaviorScore(),
+                        measurement.getMeasurementDate()
+                ))
+                .toList();
     }
 }
