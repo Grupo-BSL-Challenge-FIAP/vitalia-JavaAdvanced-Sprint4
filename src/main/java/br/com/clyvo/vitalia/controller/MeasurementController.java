@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/measurements")
 public class MeasurementController {
@@ -32,6 +34,13 @@ public class MeasurementController {
     @GetMapping("/pet/{petId}/latest")
     public ResponseEntity<MeasurementDetailResponse> buscarUltimaMedicao(@PathVariable Long petId) {
         MeasurementDetailResponse response = measurementService.buscarUltimaMedicao(petId);
+
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/pet/{petId}")
+    public ResponseEntity<List<MeasurementDetailResponse>> buscarHistoricoMedicoes(@PathVariable Long petId) {
+        List<MeasurementDetailResponse> response = measurementService.buscarHistoricoMedicoes(petId);
 
         return ResponseEntity.ok(response);
     }
