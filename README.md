@@ -98,40 +98,45 @@ para estruturas mais robustas como AppUser.
 
 | Atividade | Responsável | Data | Status |
 |--------|----------|------------|------------|
-| Implementação da entidade Account | Manuelalacerda | 13/05 |Concluído |
-| Configuração inicial do Swagger/OpenAPI | Manuelalacerda | 13/05 |Concluído |
-| Criação do README e guia de testes | Manuelalacerda | 13/05 |Concluído |
-| Implementação da entidade Responsible | Manuelalacerda | 13/05 |Concluído |
-| Ajustes de validações do AccountRequest | Manuelalacerda | 15/05 |Concluído |
-| Ajustes de validações do ResponsibleRequest | Manuelalacerda | 15/05 |Concluído |
-| Implementação da entidade Veterinarian | Manuelalacerda | 15/05 |Concluído |
-| Implementação da entidade Pet | Manuelalacerda | 15/05 |Concluído |
-| Ajustes e correções dos endpoints | Manuelalacerda | 15/05 |Concluído |
-| Implementação da entidade ClinicalHistory | Manuelalacerda | 15/05 |Concluído |
-| Documentação do módulo ClinicalHistory | Manuelalacerda | 15/05 |Concluído |
-| Implementação da entidade Alert | Manuelalacerda | 15/05 |Concluído |
-| Implementação da entidade Appointment | Manuelalacerda | 15/05 |Concluído |
-| Correção de paginação e cache do módulo Pet | Manuelalacerda | 18/05 |Concluído |
-| Correção de paginação e cache do módulo Responsible | Manuelalacerda | 18/05 |Concluído |
-| Configuração de cache na aplicação | Manuelalacerda | 18/05 |Concluído |
-| Ajustes do SwaggerConfig | Manuelalacerda | 18/05 |Concluído |
-| Correção dos HTTP Responses | Manuelalacerda | 18/05 |Concluído |
-| Organização de imagens e estrutura do projeto | Manuelalacerda | 21/05 |Concluído |
-| Atualizações da documentação README | Manuelalacerda | 21/05 |Concluído |
-| Adição da pasta de testes e exportação Postman | Manuelalacerda | 21/05 |Concluído |
-| Refatoração e otimização das buscas e serviços (Pet, ClinicalHistory, Appointment) | Manuelalacerda | 31/08 | Concluído |
-| Atualização do script V1 para o Oracle e migração de Account para AppUser | Manuelalacerda | 31/08 | Concluído |
-| Configuração de segurança com Spring Security, JWT, CORS e tratamentos de exceção | Manuelalacerda | 31/08 | Concluído |
-| Implementação do canal WebSocket para alertas e fluxo veterinário | Manuelalacerda | 31/08 | Concluído |
-| Finalização da validação de contratos, roles e expiração do JWT | Manuelalacerda | 01/09 | Concluído |
-| Atualização do TokenService para incluir claims obrigatórias (userId, iat) | Manuelalacerda | 01/09 | Concluído |
-| Atualização das URLs da API pública | Manuelalacerda | 04/09 | Concluído |
-| Adição de script de migration do Flyway e validação de schema com Oracle | Infnet / Manuelalacerda | 06/09 | Concluído |
-| Restrição de cadastros administrativos e atribuição de role padrão | Manuelalacerda | 06/09 | Concluído |
-| Alinhamento do esquema inicial do Flyway com validações do Hibernate | Manuelalacerda | 07/09 | Concluído |
-| Adição de validação de role VETERINARIAN em Appointment e ClinicalHistory | Manuelalacerda | 07/09 | Concluído |
-| Refatoração de repositórios (remoção de RoleRepository excedente) | Manuelalacerda | 07/09 | Concluído |
-| Finalização da suíte de testes unitários e validações da sprint | Manuelalacerda | 07/09 | Concluído |
+| Implementação da entidade Account | Manuelalacerda | 13/05 | Concluído |
+| Configuração inicial do Swagger/OpenAPI | Manuelalacerda | 13/05 | Concluído |
+| Criação do README e guia de testes | Manuelalacerda | 13/05 | Concluído |
+| Implementação da entidade Responsible | Manuelalacerda | 13/05 | Concluído |
+| Ajustes de validações do AccountRequest | Manuelalacerda | 15/05 | Concluído |
+| Ajustes de validações do ResponsibleRequest | Manuelalacerda | 15/05 | Concluído |
+| Implementação da entidade Veterinarian | Manuelalacerda | 15/05 | Concluído |
+| Implementação da entidade Pet | Manuelalacerda | 15/05 | Concluído |
+| Ajustes e correções dos endpoints | Manuelalacerda | 15/05 | Concluído |
+| Implementação da entidade ClinicalHistory | Manuelalacerda | 15/05 | Concluído |
+| Documentação do módulo ClinicalHistory | Manuelalacerda | 15/05 | Concluído |
+| Implementação da entidade Alert | Manuelalacerda | 15/05 | Concluído |
+| Implementação da entidade Appointment | Manuelalacerda | 15/05 | Concluído |
+| Correção de paginação e cache do módulo Pet | Manuelalacerda | 18/05 | Concluído |
+| Correção de paginação e cache do módulo Responsible | Manuelalacerda | 18/05 | Concluído |
+| Configuração de cache na aplicação | Manuelalacerda | 18/05 | Concluído |
+| Ajustes do SwaggerConfig | Manuelalacerda | 18/05 | Concluído |
+| Correção dos HTTP Responses | Manuelalacerda | 18/05 | Concluído |
+| Organização de imagens e estrutura do projeto | Manuelalacerda | 21/05 | Concluído |
+| Atualizações da documentação README | Manuelalacerda | 21/05 | Concluído |
+| Adição da pasta de testes e exportação Postman | Manuelalacerda | 21/05 | Concluído |
+| Refatoração do Flyway, roles e validações de Appointment e ClinicalHistory | Manuelalacerda | 07/09 | Concluído |
+| Padronização de DTOs, segurança no PetService e coleção Postman | Manuelalacerda | 09/09 | Concluído |
+| Restrição de alertas/históricos para Admin/Vet e autorização DRY | Manuelalacerda | 10/09 | Concluído |
+| Suíte de testes de integração, auth bearer no Postman e refatoração de regras | Manuelalacerda | 11/09 | Concluído |
+| Atualização de dados de perfil do tutor (CPF, data de nascimento e endereço) | Manuelalacerda | 12/09 | Concluído |
+| Criação do `SpeciesController`, `BreedService`, DTOs e migration V4 (`seed_species_and_breeds`) | Moisés | 13/09 | Concluído |
+| Implementação do endpoint de exclusão de conta (`DELETE /users/{id}`) e `/auth/me` | Moisés | 13/09 | Concluído |
+| Criação do `DatabaseProcedureService`, procedure no controller e `AlertType` | Moisés | 11/10 | Concluído |
+| Fluxo de ingestão de medições e integração backend com IA | Manuelalacerda | 27/10 | Concluído |
+| Persistência de recomendações da IA e integração com alertas | Manuelalacerda | 27/10 | Concluído |
+| Implementação do `MeasurementController` (endpoints de histórico e última medição IoT) | Moisés | 02/11 | Concluído |
+| Validação de permissões de acesso do usuário às medições do pet | Moisés | 02/11 | Concluído |
+| Desenvolvimento do `AppVersionController`, repositório e regras de versões publicadas | Moisés | 03/11 | Concluído |
+| Ocultação de stack trace nas respostas de erro do SecurityConfig | Moisés | 03/11 | Concluído |
+| Implementação do tipo, local, detalhes e fluxo de confirmação de consultas (`PATCH /appointments/{id}/confirm`) | Moisés | 04/11 | Concluído |
+| Permissão de cancelamento de consultas por tutores e ajuste nos testes | Moisés | 04/11 | Concluído |
+| Criação do `VeterinarianController`, serviço, DTO de resposta e ajuste no `SecurityConfig` | Moisés | 04/11 | Concluído |
+| Atualização do link do YouTube e refinamentos da documentação no README | Manuelalacerda | 04/11 | Concluído |
 
 ---
 
@@ -171,7 +176,17 @@ para estruturas mais robustas como AppUser.
 
 ---
 
-# 🔐 1. Auth Controller (`/auth`)
+# 🐾 1. Species (/species)
+
+| Método | Endpoint | Descrição/Perfil de Acesso                         |
+|--------|----------|----------------------------------------------------|
+| GET | `/species` | Lista todas as espécies                       |
+| GET | `/species/{speciesId}/breeds` | Lista as raças de uma espécie |
+| POST | `/auth/register` | Cadastra um registro utilizando PL/SQL                             |
+
+---
+
+# 🔐 2. Auth Controller (`/auth`)
 
 | Método | Endpoint | Descrição/Perfil de Acesso                         |
 |--------|----------|----------------------------------------------------|
@@ -219,7 +234,7 @@ VETERINARIAN
 ```
 ---
 
-# 👤 2. App User Controller (`/users`)
+# 👤 3. App User Controller (`/users`)
 
 | Método | Endpoint | Descrição/Perfil de Acesso      |
 |--------|----------|---------------------------------|
@@ -227,10 +242,12 @@ VETERINARIAN
 | GET | `/users/{id}` | Busca um usuário pelo ID        |
 | PUT | `/users/{id}` | Atualiza os dados de um usuário |
 | DELETE | `/users/{id}` | Remove um usuário do sistema    |
+| PUT | `/users/me` | Atualiza os dados do usuário autenticado    |
+| DELETE | `/users/me` | Remove o próprio usuário autenticado    |
 
 ---
 
-# 🐶 3. Pets (`/pets`)
+# 🐶 4. Pets (`/pets`)
 
 | Método | Endpoint | Descrição/Perfil de Acesso                                 |
 |--------|----------|------------------------------------------------------------|
@@ -256,7 +273,7 @@ POST
 ```
 ---
 
-# 📊 4. Clinical History Controller (`/clinical-histories`)
+# 📊 5. Clinical History Controller (`/clinical-histories`)
 
 | Método | Endpoint | Descrição/Perfil de Acesso                     |
 |--------|----------|------------------------------------------------|
@@ -280,7 +297,7 @@ POST
 }
 ```
 ---
-# 📅 5. Appointment Controller (`/appointments`)
+# 📅 6. Appointment Controller (`/appointments`)
 
 | Método | Endpoint | Descrição |
 |--------|----------|------------|
@@ -289,6 +306,7 @@ POST
 | GET | `/appointments/{id}` | Busca um agendamento pelo ID |
 | PUT | `/appointments/{id}` | Atualiza um agendamento |
 | DELETE | `/appointments/{id}` | Remove um agendamento |
+| PATCH | `/appointments/{id}/confirm` | Confirma uma consulta |
 | GET | `/appointments/pet/{petId}` | Lista todas as consultas de um pet específico |
 
 ---
@@ -304,7 +322,7 @@ POST
 ```
 ---
 
-# 🚨 6. Alert Controller (`/alerts`)
+# 🚨 7. Alert Controller (`/alerts`)
 
 | Método | Endpoint | Descrição/Perfil de acesso            |
 |--------|----------|---------------------------------------|
@@ -326,6 +344,35 @@ POST
   "petId": 1
 }
 ```
+
+---
+
+# 📱 8. App Version Controller (/app-versions)
+
+| Método | Endpoint | Descrição |
+|--------|----------|------------|
+| GET | `/app-versions` | Lista as versões da aplicação |
+| POST | `/app-versions` | Regista uma nova versão |
+| GET | `/app-versions/{version}` | Busca detalhes de uma versão específica |
+
+---
+
+# 📏 9. Measurement Controller (/api/measurements)
+
+| Método | Endpoint | Descrição |
+|--------|----------|------------|
+| POST | `/api/measurements` | Regista uma nova medição IoT |
+| GET | `/api/measurements/pet/{petId}` | Lista as medições de um pet específico |
+| GET | `/api/measurements/pet/{petId}/latest` | Retorna a medição mais recente de um pet |
+
+---
+
+# 🩺 10. Veterinarian Controller (/veterinarians)
+
+| Método | Endpoint | Descrição |
+|--------|----------|------------|
+| GET | `/veterinarians` | Lista todos os veterinários registados |
+
 ---
 
 ### 🗄 Modelo
