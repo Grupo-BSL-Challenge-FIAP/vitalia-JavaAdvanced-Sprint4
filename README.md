@@ -19,6 +19,13 @@ http://localhost:8080
 ```
 ---
 
+# 🔗 Link Youtube
+
+```bash
+https://www.youtube.com/watch?v=OFF-OnubFsc
+```
+---
+
 # ⚙️ Como Configurar e Executar com Oracle / Flyway
 
 ### 1. Pré-requisitos
