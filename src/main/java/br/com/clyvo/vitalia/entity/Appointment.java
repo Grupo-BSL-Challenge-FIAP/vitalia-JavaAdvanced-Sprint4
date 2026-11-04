@@ -34,4 +34,10 @@ public class Appointment {
 
     @Column(name = "NOTES", length = 1000)
     private String notes;
+
+    @Column(name = "APPOINTMENT_TYPE", length = 100)
+    private String appointmentType;
+
+    @Column(name = "LOCATION", length = 255)
+    private String location;
 }
