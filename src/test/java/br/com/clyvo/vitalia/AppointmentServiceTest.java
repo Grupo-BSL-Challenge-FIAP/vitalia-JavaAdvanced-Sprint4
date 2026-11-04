@@ -75,19 +75,22 @@ class AppointmentServiceTest {
         org.mockito.Mockito.when(auth.getName()).thenReturn("tutor@email.com");
         org.springframework.security.core.context.SecurityContextHolder.getContext().setAuthentication(auth);
 
-        AppointmentRequest requestDTO = new AppointmentRequest(
-                LocalDateTime.now(),
+        AppointmentRequest request = new AppointmentRequest(
+                LocalDateTime.now().plusDays(1),
                 null,
-                "Consulta de rotina",
+                "Consulta teste",
+                "Rotina",
+                "Clínica Vitalia - Bela Vista",
                 1L,
                 1L
         );
 
         ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
-            appointmentService.create(requestDTO);
+            appointmentService.create(request);
         });
 
         assertEquals(HttpStatus.FORBIDDEN, exception.getStatusCode());
         assertEquals("O usuário informado não possui o perfil de Veterinário", exception.getReason());
     }
+
 }
