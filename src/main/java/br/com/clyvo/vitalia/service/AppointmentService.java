@@ -45,6 +45,8 @@ public class AppointmentService {
                 .appointmentDate(request.appointmentDate())
                 .status(request.status() != null ? request.status().name() : "SCHEDULED")
                 .notes(request.notes())
+                .appointmentType(request.appointmentType())
+                .location(request.location())
                 .build();
 
         return toResponse(repository.save(appointment));
@@ -72,6 +74,9 @@ public class AppointmentService {
         appointment.setVeterinarian(veterinarian);
         appointment.setAppointmentDate(request.appointmentDate());
         appointment.setNotes(request.notes());
+        appointment.setAppointmentType(request.appointmentType());
+        appointment.setLocation(request.location());
+
         if (request.status() != null) {
             appointment.setStatus(request.status().name());
         }
@@ -105,9 +110,11 @@ public class AppointmentService {
     public void delete(Long id) {
         Appointment appointment = repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Consulta não encontrada"));
+
         if (appointment.getPet() != null) {
             authorizationService.validatePetOwnership(appointment.getPet());
         }
+
         repository.deleteById(id);
     }
 
@@ -117,8 +124,11 @@ public class AppointmentService {
                 app.getAppointmentDate(),
                 app.getStatus(),
                 app.getNotes(),
+                app.getAppointmentType(),
+                app.getLocation(),
                 app.getPet() != null ? app.getPet().getId() : null,
-                app.getVeterinarian() != null ? app.getVeterinarian().getId() : null
+                app.getVeterinarian() != null ? app.getVeterinarian().getId() : null,
+                app.getVeterinarian() != null ? app.getVeterinarian().getFullName() : null
         );
     }
 }
