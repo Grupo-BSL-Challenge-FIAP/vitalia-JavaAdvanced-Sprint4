@@ -51,6 +51,13 @@ public class AppointmentController {
         return ResponseEntity.ok(response);
     }
 
+    @PatchMapping("/{id}/confirm")
+    @Operation(summary = "Confirma uma consulta")
+    public ResponseEntity<AppointmentResponse> confirm(@PathVariable Long id) {
+        AppointmentResponse response = service.confirm(id);
+        return ResponseEntity.ok(response);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);
