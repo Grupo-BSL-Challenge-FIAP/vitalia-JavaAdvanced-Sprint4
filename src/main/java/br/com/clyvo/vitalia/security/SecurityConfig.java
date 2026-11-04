@@ -301,6 +301,15 @@ public class SecurityConfig {
                         )
 
                         .requestMatchers(
+                                HttpMethod.GET,
+                                "/veterinarians"
+                        ).hasAnyRole(
+                                "TUTOR",
+                                "VETERINARIAN",
+                                "ADMIN"
+                        )
+
+                        .requestMatchers(
                                 HttpMethod.PUT,
                                 "/appointments/**"
                         ).hasAnyRole(
