@@ -107,6 +107,24 @@ public class AppointmentService {
                 .toList();
     }
 
+    @Transactional
+    public AppointmentResponse confirm(Long id) {
+        Appointment appointment = repository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Consulta não encontrada"));
+
+        if (appointment.getPet() != null) {
+            authorizationService.validatePetOwnership(appointment.getPet());
+        }
+
+        if (!"SCHEDULED".equalsIgnoreCase(appointment.getStatus())) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Somente consultas pendentes podem ser confirmadas");
+        }
+
+        appointment.setStatus("CONFIRMED");
+
+        return toResponse(repository.save(appointment));
+    }
+
     public void delete(Long id) {
         Appointment appointment = repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Consulta não encontrada"));
