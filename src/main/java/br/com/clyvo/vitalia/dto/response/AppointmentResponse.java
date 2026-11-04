@@ -7,6 +7,9 @@ public record AppointmentResponse(
         LocalDateTime appointmentDate,
         String status,
         String notes,
+        String appointmentType,
+        String location,
         Long petId,
-        Long veterinarianId
+        Long veterinarianId,
+        String veterinarianName
 ) {}
