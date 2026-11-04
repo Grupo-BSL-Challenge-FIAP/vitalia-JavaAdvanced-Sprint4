@@ -312,6 +312,7 @@ public class SecurityConfig {
                                 HttpMethod.DELETE,
                                 "/appointments/**"
                         ).hasAnyRole(
+                                "TUTOR",
                                 "VETERINARIAN",
                                 "ADMIN"
                         )
